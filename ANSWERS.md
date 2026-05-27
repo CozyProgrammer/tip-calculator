@@ -3,7 +3,7 @@
 Download the repo, open `index.html` in any browser.
 Nothing to install.
 
-Deployed link: [add GitHub Pages link here]
+Deployed link: [https://cozyprogrammer.github.io/tip-calculator/]
 
 ## 2. Stack & Design Choices
 
