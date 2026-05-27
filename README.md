@@ -11,7 +11,7 @@ No installs. No commands. Nothing.
 git clone https://github.com/CozyProgrammer/tip-calculator.git
 Then just open `index.html`.
 
-Deployed version: [add GitHub Pages link here]
+Deployed version: [https://cozyprogrammer.github.io/tip-calculator/]
 
 ## What's in it
 
