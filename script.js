@@ -1,4 +1,3 @@
-// ── STEP 1: GRAB ALL THE HTML ELEMENTS ──
 const billInput    = document.getElementById('bill');
 const tipInput     = document.getElementById('tip');
 const peopleInput  = document.getElementById('people');
@@ -13,25 +12,23 @@ const totalTipEl   = document.getElementById('total-tip');
 const grandTotalEl = document.getElementById('grand-total');
 const perPersonEl  = document.getElementById('per-person');
 
-// ── STEP 2: LISTEN FOR TYPING ──
 billInput.addEventListener('input', calculate);
 tipInput.addEventListener('input', calculate);
 peopleInput.addEventListener('input', calculate);
 
-// ── STEP 3: PRESET BUTTONS ──
 presetBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    // Remove active from all buttons
+    
     presetBtns.forEach(b => b.classList.remove('active'));
-    // Add active to clicked button
+  
     btn.classList.add('active');
-    // Put that value into tip input
+   
     tipInput.value = btn.dataset.value;
     calculate();
   });
 });
 
-// ── STEP 4: RESET ──
+
 resetBtn.addEventListener('click', () => {
   billInput.value    = '';
   tipInput.value     = '';
@@ -45,7 +42,6 @@ resetBtn.addEventListener('click', () => {
   perPersonEl.textContent = 'Rs 0.00';
 });
 
-// ── STEP 5: THE MAIN CALCULATE FUNCTION ──
 function calculate() {
 
   // Read values from inputs
@@ -62,7 +58,6 @@ function calculate() {
   let valid = true;
 
   if (billInput.value === '') {
-    // Empty is fine — just don't calculate yet
     valid = false;
   } else if (isNaN(bill) || bill <= 0) {
     billError.textContent = 'Enter a valid positive amount';
@@ -93,8 +88,6 @@ function calculate() {
   const grandTotal = bill + totalTip;
   const perPerson  = grandTotal / people;
 
-  // Rounding policy — round UP to nearest paisa
-  // So the group never underpays
   totalTipEl.textContent   = 'Rs ' + Math.ceil(totalTip   * 100) / 100;
   grandTotalEl.textContent = 'Rs ' + Math.ceil(grandTotal * 100) / 100;
   perPersonEl.textContent  = 'Rs ' + Math.ceil(perPerson  * 100) / 100;
